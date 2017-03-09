@@ -5,9 +5,9 @@ function Manager(name, email, position) {
     this.position = position;
 }
 
-let elon = new Manager("Elon Musk","elon.musk@musky.com","Boss",)
+let elon = new Manager("Elon Musk","elon.musk@musky.com","Boss")
 
-function Hire(name, email, position, project) {
+function Hire(name, email, position, project){
     this.name = name;
     this.email = email;
     this.position = position;
@@ -29,38 +29,24 @@ function manager(hire,boss){
 }
 // send to training
 
-function skills(hire){
-  
+function skills(hire,skill){
+  if(!hire.skills){
+    hire.skills =[]
+  }else{
+    hire.skills.push(skill)
+  }
 }
-if (!alan.skills) {
-  alan.skills = []
-}
-alan.skills.push("Mathematics")
 
-if (!grace.skills) {
-  grace.skills = []
-}
-grace.skills.push("Cobol")
-
-if (!donald.skills) {
-  donald.skills = []
-}
-donald.skills.push("Computational Complexity")
+skills(alan,"Mathematics")
+skills(grace,"Cobol")
+skills(donald,"Computational Complexity")
 
 // whoops!  new person hired later on, do the same again for him
-let new_hire = {
-  name: "Tim Berners-Lee",
-  email: "tim.berners_lee@musky.com",
-  position: "Computer Science",
-  project: "Networks"
-}
-let tim = new_hire
-tim.manager = elon
 
-if (!tim.skills) {
-  tim.skills = []
-}
-tim.skills.push("Protocols")
+let tim = new Hire ("Tim Berners-Lee","tim.berners_lee@musky.com","Computer Science","Networks")
+manager(tim,elon)
+skills(tim,"Protocols")
+
 
 console.log(`${alan.name} is a ${alan.position} working on ${alan.project}.`)
 console.log(`He can be reached at ${alan.email}`)
