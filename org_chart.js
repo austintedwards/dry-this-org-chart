@@ -1,38 +1,37 @@
-let elon = {
-  name: "Elon Musk",
-  email: "elon.musk@musky.com",
-  position: "Boss",
+
+function Manager(name, email, position) {
+    this.name = name;
+    this.email = email;
+    this.position = position;
 }
 
-let new_hires = [
-  {
-    name: "Alan Turing",
-    email: "alan.turing@musky.com",
-    position: "Computer Scientist",
-    project: "Cryptography"
-  },
-  {
-    name: "Grace Hopper",
-    email: "grace.hopper@musky.com",
-    position: "Computer Scientist",
-    project: "Compilers"
-  },
-  {
-    name: "Donald Knuth",
-    email: "donald.knuth@musky.com",
-    position: "Mathematician",
-    project: "Algorithm Analysis"
-  }
-]
+let elon = new Manager("Elon Musk","elon.musk@musky.com","Boss",)
+
+function Hire(name, email, position, project) {
+    this.name = name;
+    this.email = email;
+    this.position = position;
+    this.project = project;
+}
+
+let alan = new Hire("Alan Turing","alan.turing@musky.com","Computer Scientist","Cryptography")
+let grace = new Hire("Grace Hopper","grace.hopper@musky.com","Computer Scientist","Compilers")
+let donald = new Hire("Donald Knuth","donald.knuth@musky.com","Mathematician","Algorithm Analysis")
 
 // assign each a manager
-let [alan, grace, donald] = new_hires
+// let [alan, grace, donald] = new_hires
+manager(alan,elon)
+manager(grace,elon)
+manager(donald,elon)
 
-alan.manager = elon
-grace.manager = elon
-donald.manager = elon
-
+function manager(hire,boss){
+  hire.manager = boss
+}
 // send to training
+
+function skills(hire){
+  
+}
 if (!alan.skills) {
   alan.skills = []
 }
