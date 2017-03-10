@@ -52,7 +52,8 @@ console.log(listEmployes(hire))
 function listEmployes(employee){
   let employeelist=""
   for (var i = 0; i < employee.length; i++) {
-    employeelist+= ` ${employee[i].name} is a ${employee[i].position} working on ${employee[i].project}. He can be reached at ${employee[i].email}. His boss is ${employee[i].manager.name}.`
+    employeelist+= ` ${employee[i].name} is a ${employee[i].position} working on ${employee[i].project}.`+
+    ` He can be reached at ${employee[i].email}. His boss is ${employee[i].manager.name} and skiils include ${employee[i].skills}. `
   }
   return employeelist
 }
