@@ -47,12 +47,20 @@ let tim = new Employee ("Tim Berners-Lee","tim.berners_lee@musky.com","Computer 
 manager(tim,elon)
 skills(tim,"Protocols")
 
-console.log(hire)
-console.log(`${alan.name} is a ${alan.position} working on ${alan.project}.`)
-console.log(`He can be reached at ${alan.email}. His boss is ${alan.manager.name}`)
-console.log(`${grace.name} is a ${grace.position} working on ${grace.project}.`)
-console.log(`She can be reached at ${grace.email} and hes got skills in ${alan.skills}`)
-console.log(`${donald.name} is a ${donald.position} working on ${donald.project}.`)
-console.log(`He can be reached at ${donald.email}`)
-console.log(`${tim.name} is a ${tim.position} working on ${tim.project}.`)
-console.log(`He can be reached at ${tim.email}`)
+console.log(listEmployes(hire))
+
+function listEmployes(employee){
+  let employeelist=""
+  for (var i = 0; i < employee.length; i++) {
+    employeelist+= ` ${employee[i].name} is a ${employee[i].position} working on ${employee[i].project}. He can be reached at ${employee[i].email}. His boss is ${employee[i].manager.name}.`
+  }
+  return employeelist
+}
+// console.log(`${alan.name} is a ${alan.position} working on ${alan.project}.`)
+// console.log(`He can be reached at ${alan.email}. His boss is ${alan.manager.name}`)
+// console.log(`${grace.name} is a ${grace.position} working on ${grace.project}.`)
+// console.log(`She can be reached at ${grace.email} and hes got skills in ${alan.skills}`)
+// console.log(`${donald.name} is a ${donald.position} working on ${donald.project}.`)
+// console.log(`He can be reached at ${donald.email}`)
+// console.log(`${tim.name} is a ${tim.position} working on ${tim.project}.`)
+// console.log(`He can be reached at ${tim.email}`)
