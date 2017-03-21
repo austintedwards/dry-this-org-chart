@@ -1,6 +1,6 @@
-function Employee(name, email, position, project, gender){
+function Employee(name, position, project, gender){
     this.name = name;
-    this.email = email;
+    this.email = Employee.email(name);
     this.position = position;
     this.project = project;
     this.gender = gender;
@@ -24,12 +24,23 @@ Employee.prototype.introduce = function(){
     console.log(`${this.gender === 'F'? 'Her':'His'} boss is ${this.manager.name} and skills include ${this.skills}. `);
   }
 
-  let elon = new Employee("Elon Musk","elon.musk@musky.com","Boss");
+  Employee.email=function(name){
+    return name.replace(" ",".").toLowerCase() +"@musky.com"
+  }
 
-  let hire = [new Employee("Alan Turing","alan.turing@musky.com","Computer Scientist","Cryptography","M"),
-  new Employee("Grace Hopper","grace.hopper@musky.com","Computer Scientist","Compilers","F"),
-  new Employee("Donald Knuth","donald.knuth@musky.com","Mathematician","Algorithm Analysis","M")];
+  let elon = new Employee("Elon Musk","Boss");
 
+  let hire = [new Employee("Alan Turing","Computer Scientist","Cryptography","M"),
+  new Employee("Grace Hopper","Computer Scientist","Compilers","F"),
+  new Employee("Donald Knuth","Mathematician","Algorithm Analysis","M")];
+
+  let [alan,grace,donald] = hire;
+
+
+
+hired(alan,elon,"Mathematics");
+hired(grace,elon,"Cobol");
+hired(donald,elon,"Computational Complexity");
 
 
 
@@ -40,15 +51,11 @@ function hired(employee, manager, trade){
 }
 
 
-let [alan,grace,donald] = hire;
-hired(alan,elon,"Mathematics");
-hired(grace,elon,"Cobol");
-hired(donald,elon,"Computational Complexity");
 
 
 
 // whoops!  new person hired later on, do the same again for him
 
 
-  let tim = new Employee ("Tim Berners-Lee","tim.berners_lee@musky.com","Computer Science","Networks");
+  let tim = new Employee ("Tim Berners-Lee","Computer Science","Networks");
   hired(tim, elon, "Protocols");
